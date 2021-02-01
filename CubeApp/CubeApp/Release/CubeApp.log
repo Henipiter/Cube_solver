@@ -1,0 +1,11 @@
+﻿  cube.cpp
+C:\Users\Henryk\source\repos\CubeApp\CubeApp\cube.cpp(212,17): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+C:\Users\Henryk\source\repos\CubeApp\CubeApp\cube.cpp(306,17): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+C:\Users\Henryk\source\repos\CubeApp\CubeApp\cube.cpp(313,10): warning C4101: "w": lokalna zmienna, do której nie istnieje odwołanie
+C:\Users\Henryk\source\repos\CubeApp\CubeApp\cube.cpp(357,17): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+  Trwa generowanie kodu
+  1 of 268 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
+  Zakończono generowanie kodu
+  CubeApp.vcxproj -> C:\Users\Henryk\source\repos\CubeApp\Release\CubeApp.exe

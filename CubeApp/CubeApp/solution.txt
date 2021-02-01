@@ -1,0 +1,35 @@
+
+ Setup: F R'
+ Perm: R U' R' U' R U R' F' R U R' U' R' F R
+ Resetup: R F' 
+ Setup: D' R
+ Perm: R U' R' U' R U R' F' R U R' U' R' F R
+ Resetup: R' D 
+ Setup: R
+ Perm: R U' R' U' R U R' F' R U R' U' R' F R
+ Resetup: R' 
+ Setup: D
+ Perm: R U' R' U' R U R' F' R U R' U' R' F R
+ Resetup: D' 
+ Setup: F R'
+ Perm: R U' R' U' R U R' F' R U R' U' R' F R
+ Resetup: R F' 
+----------: 
+ Parity: U' L U2 L' U2 L F' L' U' L U L F L2 U2
+----------: 
+ Setup:  E' L
+ Perm: R U R' U' R' F R2 U' R' U' R U R' F'
+ Resetup: L' E 
+ Setup:  L2
+ Perm: R U R' U' R' F R2 U' R' U' R U R' F'
+ Resetup: L2 
+ Setup:  M2
+ Perm: R U2 R' U' R U2 L' U R' U' L
+ Resetup: M2 
+ Setup:  D2 L2
+ Perm: R U R' U' R' F R2 U' R' U' R U R' F'
+ Resetup: L2 D2 
+ Setup:  E' L
+ Perm: R U R' U' R' F R2 U' R' U' R U R' F'
+ Resetup: L' E 
+END

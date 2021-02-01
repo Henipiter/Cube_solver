@@ -1,0 +1,67 @@
+ULB:
+LUB:
+BLU:
+---
+UBR:R D'
+RUB:R2
+BRU:R' F 
+---
+URF:F
+RUF:R'
+FRU:F2 D
+---
+ULF:F R'
+LUF:F2
+FLU:F' D
+---
+DLB:D F'
+LDB:D2
+BLD:D' R
+---
+DBR:D2 F'
+RDB:R
+BRD:D'
+---
+DRF:D' F'
+RDF: 
+FRD:F D
+---
+DLF:F'
+LDF:D2 R
+FLD:D
+======
+UR:
+RU:
+--
+UB:7 
+BU:J M
+--
+UL:T 
+LU:J L2 D M'
+--
+UF:J 
+FU:7 M'
+--
+RF:T E' L'
+FR:T E2 L
+--
+LF:T E' L
+FL:T L'
+--
+LB:T E L'
+BL:T L
+--
+RB:T E L
+BR:T E2 L'
+--
+DR:T D2 L2
+RD:J D' M'
+--
+DB:J M2
+BD:7 M
+--
+DL:T L2
+LD:J D M'
+--
+DF:7 M2
+FD:J M'
