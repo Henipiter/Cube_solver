@@ -43,7 +43,6 @@ public:
     void orientCube(string to); //obraca kostkê; solve - do rozwiazania; scramble - do miesznia
     void setAlgoritms(); //zczytanie i zapis setupow z pliku
     void getMarks(); //pobiera oznaczenia kostki
-    void scrambleCube(string algorithm); //mieszanie koœci
     //solution
     void printSolution(); //wypisz rozwiazanie
     void printSolutionTxt();  //zczytanie i zapis oznaczen na kosci
@@ -56,42 +55,18 @@ public:
     void solveEdge(int edg, int flank, bool start); //przemieszczenie krawedzi na wlasciwe miejsce. Funkcja rekurencyjna
     void OldPochmann(); //wywolanie metody ukladania
     */
-    char** getSide() {
-        return side;
-    }
-    vector<char> getCenter() {
-        return center;
-    }
-    bool getIsParity() {
-        return isParity;
-    }
-    bool* getVertexCorrect() {
-        return vertexCorrect;
-    }
-    bool* getEdgeCorrect() {
-        return edgeCorrect;
-    }
-    vertexData* getVertex() {
-        return vertex;
-    }
-    edgeData* getEdge() {
-        return edge;
-    }
-    void setVertexCorrect(int index, bool value) {
-        vertexCorrect[index] = value;
-    }
-    void setEdgeCorrect(int index, bool value) {
-        edgeCorrect[index] = value;
-    }
-    void solutionAppend(side_field info) {
-        solution.push_back(info);
-    }
-    void changeIsParity() {
-        isParity = !isParity;
-    }
-    string getSolutionFilename() {
-        return solutionFile;
-    }
+    char** getSide();
+    vector<char> getCenter();
+    bool getIsParity();
+    bool* getVertexCorrect();
+    bool* getEdgeCorrect();
+    vertexData* getVertex();
+    edgeData* getEdge();
+    void setVertexCorrect(int index, bool value);
+    void setEdgeCorrect(int index, bool value);
+    void solutionAppend(side_field info);
+    void changeIsParity();
+    string getSolutionFilename();
     
     
 private:

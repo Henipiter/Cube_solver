@@ -8,7 +8,7 @@ int main() {
 	up = 'y';
 	front = 'r';
 	
-	string scramble = "R' U R";
+	string scramble = "U R";
 	
 
 	MethodOldPochmann a(up, front, scramble);

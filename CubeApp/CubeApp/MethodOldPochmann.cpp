@@ -11,7 +11,6 @@ void MethodOldPochmann::method()
     fstream out;
     bool* vertexCorrect = cube.getVertexCorrect();
     bool* edgeCorrect = cube.getEdgeCorrect();
-    //out.open(solutionFile, ios::app);
     out.open(cube.getSolutionFilename(), ios::app);
     out.close();
     //vertex

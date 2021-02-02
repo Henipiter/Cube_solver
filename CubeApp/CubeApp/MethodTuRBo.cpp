@@ -4,6 +4,7 @@ MethodTuRBo::MethodTuRBo(char up, char front, string scramble) : cubeSolver(up, 
 
 void MethodTuRBo::method()
 {
+	//TO DO
 }
 
 

@@ -4,9 +4,12 @@ cubeSolver::cubeSolver(char up, char front, string scramble)
 {
     cube.setOrientation(up, front);
     cube.getMarks();
-    cube.scrambleCube(scramble);
-    
-    
+    scrambleCube(scramble);
+}
+void cubeSolver::scrambleCube(string algorithm)
+{
+    cube.orientCube("scramble");
+    cube.make_moves(algorithm);
 }
 //solve
 int cubeSolver::searchVertex() {
@@ -114,54 +117,7 @@ void cubeSolver::solveEdge(int edg, int flank, bool start) {
     if (edgeCorrect[target[0]] == false)
         solveEdge(target[0], target[1], false);
 }
-//void cubeSolver::OldPochmann() {
-//    side_field buffer;
-//    cube.orientCube("solve");
-//    fstream out;
-//    bool *vertexCorrect = cube.getVertexCorrect();
-//    bool* edgeCorrect = cube.getEdgeCorrect();
-//    //out.open(solutionFile, ios::app);
-//    out.open(cube.getSolutionFilename(), ios::app);
-//    out.close();
-//    //vertex
-//    int edg;
-//    int vert;
-//    bool repeat = true;
-//    while (repeat) {
-//        repeat = false;
-//        for (int i = 1; i < 8; i++) {
-//            if (vertexCorrect[i] == false) { //jezeli jakis wierzcholek jest niepoprawny, szukaj rozwiazania;
-//                i = 8;
-//                repeat = true;
-//            }
-//        }
-//        if (repeat == true) {
-//            vert = searchVertex();
-//            if (vert < 8)
-//                solveVertex(vert, 0, true);
-//        }
-//    }
-//    buffer.side = -1;
-//    buffer.field = -1;
-//    cube.solutionAppend(buffer);
-//  
-//    //egde
-//    repeat = true;
-//    while (repeat) {
-//        repeat = false;
-//        for (int i = 1; i < 12; i++) {
-//            if (edgeCorrect[i] == false) {
-//                i = 12;
-//                repeat = true;
-//            }
-//        }
-//        if (repeat == true) {
-//            edg = searchEdge();
-//            if (edg < 12)
-//                solveEdge(edg, 0, true);
-//        }
-//    }
-//}
+
 
 void cubeSolver::solveCube()
 {

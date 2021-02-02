@@ -575,11 +575,7 @@ void Cube::getMarks() {
     else cout << "Brak pliku " << marksFile << "!" << endl;
     marks.close();
 }
-void Cube::scrambleCube(string algorithm) {
-    orientCube("scramble");
-    make_moves(algorithm);
-    orientCube("solve");
-}
+
 //solution
 void Cube::printSolution() {
     unsigned int i;
@@ -652,129 +648,40 @@ void Cube::show()
         cout << endl;
     }
 }
-////solve
-//int Cube::searchVertex() {
-//    for (int i = 0; i < 8; i++) {
-//        if (vertexCorrect[i] == true || side[vertex[i].wall[0]][vertex[i].field[0]] == vertex[i].color[0] &&
-//            side[vertex[i].wall[1]][vertex[i].field[1]] == vertex[i].color[1]) {
-//            if (i != 0)
-//                vertexCorrect[i] = true;
-//        }
-//        else
-//            return i;
-//    }
-//    return 8;
-//}
-//int Cube::searchEdge() {
-//    for (int i = 0; i < 12; i++) {
-//        if (edgeCorrect[i] == true || side[edge[i].wall[0]][edge[i].field[0]] == edge[i].color[0] &&
-//            side[edge[i].wall[1]][edge[i].field[1]] == edge[i].color[1]) {
-//            if (i != 0)
-//                edgeCorrect[i] = true;
-//        }
-//        else
-//            return i;
-//    }
-//    return 12;
-//}
-//void Cube::solveVertex(int vert, int flank, bool start) {
-//    side_field buffer;
-//    int target[2];
-//    for (int j = 0; j < 8; j++) {
-//        for (int k = 0; k < 3; k++) {
-//            if (side[vertex[vert].wall[flank]][vertex[vert].field[flank]] == vertex[j].color[k]) {
-//                if ((side[vertex[vert].wall[(flank + 1) % 3]][vertex[vert].field[(flank + 1) % 3]] == vertex[j].color[(k + 1) % 3] &&
-//                    side[vertex[vert].wall[(flank + 2) % 3]][vertex[vert].field[(flank + 2) % 3]] == vertex[j].color[(k + 2) % 3]) ||
-//                    (side[vertex[vert].wall[(flank + 1) % 3]][vertex[vert].field[(flank + 1) % 3]] == vertex[j].color[(k + 2) % 3] &&
-//                        side[vertex[vert].wall[(flank + 2) % 3]][vertex[vert].field[(flank + 2) % 3]] == vertex[j].color[(k + 1) % 3])) {
-//                    target[0] = j;
-//                    target[1] = k;
-//                    if (!start)
-//                        vertexCorrect[vert] = true;
-//                    //readMark(true, vert, flank);
-//                    if (vert != 0) {
-//                        buffer.side = vert;
-//                        buffer.field = flank;
-//                        solution.push_back(buffer);
-//                    }
-//                    isParity = !isParity;
-//                    k = 3;
-//                    j = 8;
-//                }
-//            }
-//        }
-//    }
-//    if (vertexCorrect[target[0]] == false)
-//        solveVertex(target[0], target[1], false);
-//
-//}
-//void Cube::solveEdge(int edg, int flank, bool start) {
-//    side_field buffer;
-//    int target[2] = { 0,0 };
-//    for (int j = 0; j < 12; j++) {
-//        for (int k = 0; k < 2; k++) {
-//            if (side[edge[edg].wall[flank]][edge[edg].field[flank]] == edge[j].color[k] &&
-//                side[edge[edg].wall[(flank + 1) % 2]][edge[edg].field[(flank + 1) % 2]] == edge[j].color[(k + 1) % 2]) {
-//                target[0] = j;
-//                target[1] = k;
-//                if (!start)
-//                    edgeCorrect[edg] = true;
-//                //readMark(false, edg, flank);
-//                if (edg != 0) {
-//                    buffer.side = edg;
-//                    buffer.field = flank;
-//                    solution.push_back(buffer);
-//                }
-//                k = 2;
-//                j = 12;
-//            }
-//        }
-//    }
-//    if (edgeCorrect[target[0]] == false)
-//        solveEdge(target[0], target[1], false);
-//}
-//void Cube::OldPochmann() {
-//    side_field buffer;
-//    orientCube("solve");
-//    fstream out;
-//    out.open(solutionFile, ios::app);
-//    out.close();
-//    //vertex
-//    int edg;
-//    int vert;
-//    bool repeat = true;
-//    while (repeat) {
-//        repeat = false;
-//        for (int i = 1; i < 8; i++) {
-//            if (vertexCorrect[i] == false) { //jezeli jakis wierzcholek jest niepoprawny, szukaj rozwiazania;
-//                i = 8;
-//                repeat = true;
-//            }
-//        }
-//        if (repeat == true) {
-//            vert = searchVertex();
-//            if (vert < 8)
-//                solveVertex(vert, 0, true);
-//        }
-//    }
-//    //parity (or not)
-//    buffer.side = -1;
-//    buffer.field = -1;    
-//    solution.push_back(buffer);
-//    //egde
-//    repeat = true;
-//    while (repeat) {
-//        repeat = false;
-//        for (int i = 1; i < 12; i++) {
-//            if (edgeCorrect[i] == false) {
-//                i = 12;
-//                repeat = true;
-//            }
-//        }
-//        if (repeat == true) {
-//            edg = searchEdge();
-//            if (edg < 12)
-//                solveEdge(edg, 0, true);
-//        }
-//    }
-//}
+
+char** Cube::getSide() {
+    return side;
+}
+vector<char> Cube::getCenter() {
+    return center;
+}
+bool Cube::getIsParity() {
+    return isParity;
+}
+bool* Cube::getVertexCorrect() {
+    return vertexCorrect;
+}
+bool* Cube::getEdgeCorrect() {
+    return edgeCorrect;
+}
+vertexData* Cube::getVertex() {
+    return vertex;
+}
+edgeData* Cube::getEdge() {
+    return edge;
+}
+void Cube::setVertexCorrect(int index, bool value) {
+    vertexCorrect[index] = value;
+}
+void Cube::setEdgeCorrect(int index, bool value) {
+    edgeCorrect[index] = value;
+}
+void Cube::solutionAppend(side_field info) {
+    solution.push_back(info);
+}
+void Cube::changeIsParity() {
+    isParity = !isParity;
+}
+string Cube::getSolutionFilename() {
+    return solutionFile;
+}
